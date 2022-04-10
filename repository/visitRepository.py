@@ -1,6 +1,6 @@
 from db_init import cur
 
-def gettypeVisit(value): #8532,8507 gender
+def gettypeVisit(value):
     sql = "SELECT count(*) from visit_occurrence where visit_concept_id = %s"
     cur.execute(sql,(value,))
     data = cur.fetchone()

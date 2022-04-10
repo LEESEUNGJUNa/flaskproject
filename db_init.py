@@ -7,7 +7,7 @@ cur = conn.cursor()
 #############################################
 cur.execute("CREATE TABLE gender_assignment (concept_id integer PRIMARY KEY, concept_name varchar);")
 
-cur.execute("SELECT concept_id,concept_name from concept where domain_id = 'Gender'")
+cur.execute("SELECT concept_id,concept_name from concept where domain_id = %s",(secret.imsi,))
 data = cur.fetchall()
 
 sqlString = "INSERT INTO gender_assignment (concept_id, concept_name) VALUES (%s, %s);"
@@ -16,7 +16,7 @@ for concept_id, concept_name in data:
 
 cur.execute("CREATE TABLE race_assignment (concept_id integer PRIMARY KEY, concept_name varchar);")
 
-cur.execute("SELECT concept_id,concept_name from concept where domain_id = 'Race'")
+cur.execute("SELECT concept_id,concept_name from concept where domain_id =  %s",(secret.imsi2,))
 data = cur.fetchall()
 
 sqlString = "INSERT INTO race_assignment (concept_id, concept_name) VALUES (%s, %s);"

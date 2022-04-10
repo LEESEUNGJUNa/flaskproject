@@ -1,6 +1,6 @@
 from db_init import cur
 
-def getDeathPerson(value): #8532,8507 gender
+def getDeathPerson(value):
     sql = "SELECT count(*) from death"
     cur.execute(sql)
     data = cur.fetchone()
